@@ -1,0 +1,5 @@
+CREATE TABLE test_table
+(
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100)
+);
