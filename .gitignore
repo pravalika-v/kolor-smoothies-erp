@@ -31,3 +31,17 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Logs ###
+*.log
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Maven ###
+.mvn/timing.properties
+
+### Application ###
+application-local.properties
+application-dev.properties

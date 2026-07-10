@@ -29,25 +29,16 @@ public abstract class BaseEntity {
     private LocalDateTime updatedAt;
 
     @Column(name = "created_by", length = 100)
-    private String createdBy;
+    private Long createdBy;
 
     @Column(name = "updated_by", length = 100)
-    private String updatedBy;
-
-    @Column(nullable = false)
-    private Boolean active = true;
-
-    @Version
-    private Long version;
+    private Long updatedBy;
 
     @PrePersist
     public void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
 
-        if (active == null) {
-            active = true;
-        }
     }
 
     @PreUpdate
