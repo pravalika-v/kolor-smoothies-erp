@@ -15,5 +15,5 @@ spring:
     locations: classpath:db/migration
 
 jwt:
-  secret: KolorSmoothiesERPSecretKey2026ForJwtAuthenticationVerySecureKey123456789
+  secret: bXlzdXBlcnNlY3JldGtleW15c3VwZXJzZWNyZXRrZXlteXN1cGVyc2VjcmV0a2V5MTIzNDU2Nzg5MA==
   expiration: 86400000
