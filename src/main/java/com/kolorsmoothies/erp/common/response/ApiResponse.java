@@ -56,4 +56,19 @@ public class ApiResponse<T> {
                 .message(message)
                 .build();
     }
+    
+    public static <T> ApiResponse<T> error(
+            int status,
+            String message,
+            String path) {
+
+        return ApiResponse.<T>builder()
+                .success(false)
+                .status(status)
+                .message(message)
+                .data(null)
+                .path(path)
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
 }

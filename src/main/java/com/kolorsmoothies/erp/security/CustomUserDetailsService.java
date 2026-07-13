@@ -1,5 +1,6 @@
 package com.kolorsmoothies.erp.security;
 
+import com.kolorsmoothies.erp.enums.UserStatus;
 import com.kolorsmoothies.erp.user.entity.User;
 import com.kolorsmoothies.erp.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,15 +26,14 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .orElseThrow(() ->
                         new UsernameNotFoundException("User not found"));
 
-        return new org.springframework.security.core.userdetails.User(
-
-                user.getEmail(),
-
-                user.getPassword(),
-
-                List.of(new SimpleGrantedAuthority(
-                        "ROLE_" + user.getRole().name()))
-        );
+        return org.springframework.security.core.userdetails.User
+                .builder()
+                .username(user.getEmail())
+                .password(user.getPassword())
+                .roles(user.getRole().name())
+                .disabled(user.getStatus() == UserStatus.INACTIVE)
+                .accountLocked(user.getStatus() == UserStatus.LOCKED)
+                .build();
     }
 
 }

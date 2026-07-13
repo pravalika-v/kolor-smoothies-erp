@@ -22,6 +22,8 @@ CREATE TABLE users (
 
     created_at DATETIME NOT NULL,
 
-    updated_at DATETIME NOT NULL
+    updated_at DATETIME NOT NULL,
+    
+    version BIGINT NOT NULL DEFAULT 0
 
 );

@@ -1,12 +1,11 @@
 package com.kolorsmoothies.erp.user.dto;
 
-import java.time.LocalDateTime;
-
 import com.kolorsmoothies.erp.enums.Role;
 import com.kolorsmoothies.erp.enums.UserStatus;
-
 import lombok.Builder;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -27,4 +26,6 @@ public class UserResponse {
     private UserStatus status;
 
     private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

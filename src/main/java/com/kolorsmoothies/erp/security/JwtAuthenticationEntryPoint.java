@@ -18,6 +18,12 @@ import java.util.Map;
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
+	 private final ObjectMapper objectMapper;
+
+	    public JwtAuthenticationEntryPoint(ObjectMapper objectMapper) {
+	        this.objectMapper = objectMapper;
+	    }
+	    
     @Override
     public void commence(
             HttpServletRequest request,
@@ -34,7 +40,9 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
         body.put("status", 401);
         body.put("message", "Unauthorized");
         body.put("path", request.getRequestURI());
-        body.put("timestamp", LocalDateTime.now());
+        body.put("timestamp", LocalDateTime.now().toString());
+        
+        //objectMapper.writeValue(response.getOutputStream(), body);
 
         new ObjectMapper().writeValue(response.getOutputStream(), body);
     }
